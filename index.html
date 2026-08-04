@@ -48,16 +48,27 @@
   <!-- Custom -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- JSON-LD Structured Data — LocalBusiness + Dentist -->
+  <!-- ===== SCHEMA BLOCK — Dentist + MedicalClinic + Organization + WebSite + FAQ + Breadcrumb ===== -->
+
+  <!-- 1. Dentist (Primary LocalBusiness) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Dentist",
+    "@type": ["Dentist", "MedicalClinic", "LocalBusiness"],
+    "@id": "https://trishadentalcare.com/#dentist",
     "name": "Trisha Dental Care",
-    "description": "Trisha Dental Care is a dental clinic in Chhajarsi, Sector 63, Noida offering implants, root canal, braces, smile designing, kids dentistry and 24x7 emergency dental care.",
+    "legalName": "Trisha Dental Care",
+    "description": "Trisha Dental Care is a dental clinic in Chhajarsi, Sector 63, Noida 201301 offering dental implants, root canal, braces, smile designing, kids dentistry and 24x7 emergency dental care. Open Monday to Sunday, 9 AM to 7 PM.",
     "url": "https://trishadentalcare.com",
     "telephone": "+91-XXXXXXXXXX",
-    "image": "https://images.pexels.com/photos/6627447/pexels-photo-6627447.jpeg",
+    "email": "care@trishadentalcare.com",
+    "image": "https://trishadentalcare.com/assets/images/clinic-photo.jpg",
+    "logo": "https://trishadentalcare.com/assets/images/logo.png",
+    "foundingDate": "2024",
+    "currenciesAccepted": "INR",
+    "paymentAccepted": "Cash, UPI, Debit Card, Credit Card",
+    "priceRange": "₹₹",
+    "medicalSpecialty": "Dentistry",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Chhajarsi, Sector 63",
@@ -68,9 +79,10 @@
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "28.6139",
-      "longitude": "77.3900"
+      "latitude": "28.5960",
+      "longitude": "77.3718"
     },
+    "hasMap": "https://maps.google.com/?q=Chhajarsi+Sector+63+Noida+201301",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -79,17 +91,95 @@
         "closes": "19:00"
       }
     ],
-    "medicalSpecialty": "Dentistry",
-    "foundingDate": "2024",
-    "currenciesAccepted": "INR",
-    "paymentAccepted": "Cash, UPI, Card",
-    "areaServed": ["Chhajarsi", "Sector 63 Noida", "Sector 62 Noida", "Sector 61 Noida", "Noida", "Greater Noida"],
-    "hasMap": "https://maps.google.com/?q=Chhajarsi+Noida+201301",
+    "specialOpeningHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "name": "Emergency Dental Care",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    ],
+    "areaServed": [
+      { "@type": "City", "name": "Noida" },
+      { "@type": "Neighborhood", "name": "Chhajarsi" },
+      { "@type": "Neighborhood", "name": "Sector 63 Noida" },
+      { "@type": "Neighborhood", "name": "Sector 62 Noida" },
+      { "@type": "Neighborhood", "name": "Sector 61 Noida" },
+      { "@type": "Neighborhood", "name": "Sector 64 Noida" },
+      { "@type": "City", "name": "Greater Noida" }
+    ],
+    "availableService": [
+      { "@type": "MedicalProcedure", "name": "Dental Implants" },
+      { "@type": "MedicalProcedure", "name": "Root Canal Treatment" },
+      { "@type": "MedicalProcedure", "name": "Braces" },
+      { "@type": "MedicalProcedure", "name": "Smile Designing" },
+      { "@type": "MedicalProcedure", "name": "Teeth Whitening" },
+      { "@type": "MedicalProcedure", "name": "Kids Dentistry" },
+      { "@type": "MedicalProcedure", "name": "Tooth Extraction" },
+      { "@type": "MedicalProcedure", "name": "Wisdom Tooth Removal" },
+      { "@type": "MedicalProcedure", "name": "Dentures" },
+      { "@type": "MedicalProcedure", "name": "Crowns and Bridges" },
+      { "@type": "MedicalProcedure", "name": "Veneers" },
+      { "@type": "MedicalProcedure", "name": "Gum Treatment" },
+      { "@type": "MedicalProcedure", "name": "Dental Filling" },
+      { "@type": "MedicalProcedure", "name": "Scaling and Polishing" },
+      { "@type": "MedicalProcedure", "name": "Emergency Dentistry" }
+    ],
     "sameAs": []
   }
   </script>
 
-  <!-- FAQ Schema for AI/Voice Search -->
+  <!-- 2. Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://trishadentalcare.com/#organization",
+    "name": "Trisha Dental Care",
+    "url": "https://trishadentalcare.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://trishadentalcare.com/assets/images/logo.png",
+      "width": 200,
+      "height": 60
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91-XXXXXXXXXX",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["Hindi", "English"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91-XXXXXXXXXX",
+        "contactType": "emergency",
+        "areaServed": "IN",
+        "availableLanguage": ["Hindi", "English"],
+        "hoursAvailable": "Mo-Su 00:00-23:59"
+      }
+    ],
+    "sameAs": []
+  }
+  </script>
+
+  <!-- 3. WebSite (Sitelinks Searchbox) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://trishadentalcare.com/#website",
+    "name": "Trisha Dental Care",
+    "url": "https://trishadentalcare.com",
+    "description": "Dental clinic in Chhajarsi, Sector 63, Noida — expert dental treatments, open 7 days a week, 24x7 emergency care.",
+    "inLanguage": "en-IN",
+    "publisher": { "@id": "https://trishadentalcare.com/#organization" }
+  }
+  </script>
+
+  <!-- 4. FAQPage — Voice Search / AI / Featured Snippets -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -100,15 +190,15 @@
         "name": "Is there a dental clinic in Chhajarsi, Noida?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Trisha Dental Care is a dental clinic located in Chhajarsi, Sector 63, Noida 201301. We are open Monday to Sunday from 9 AM to 7 PM and offer 24x7 emergency dental care."
+          "text": "Yes. Trisha Dental Care is a dental clinic in Chhajarsi, Sector 63, Noida 201301 — near the Sector 62 and Sector 63 areas. Open Monday to Sunday from 9 AM to 7 PM with 24x7 emergency dental care."
         }
       },
       {
         "@type": "Question",
-        "name": "What are the timings of Trisha Dental Care?",
+        "name": "What are the timings of Trisha Dental Care in Noida?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Trisha Dental Care is open every day from Monday to Sunday, 9:00 AM to 7:00 PM. For dental emergencies, our helpline is available 24 hours a day, 7 days a week."
+          "text": "Trisha Dental Care is open every day — Monday to Sunday — from 9:00 AM to 7:00 PM. The clinic is located in Chhajarsi, Sector 63, Noida. For dental emergencies, the helpline is available 24 hours a day, 7 days a week."
         }
       },
       {
@@ -116,33 +206,36 @@
         "name": "Does Trisha Dental Care offer emergency dental treatment?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Trisha Dental Care provides 24x7 emergency dental care for situations like severe toothache, broken teeth, swelling or dental trauma. Call our emergency helpline any time."
+          "text": "Yes. Trisha Dental Care provides 24x7 emergency dental care for severe toothache, broken teeth, dental abscess, swelling or trauma. Call the emergency helpline any time — available for patients in Chhajarsi, Sector 63 and nearby Noida areas."
         }
       },
       {
         "@type": "Question",
-        "name": "Which treatments are available at Trisha Dental Care in Noida?",
+        "name": "Which dental treatments are available at Trisha Dental Care, Noida?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Trisha Dental Care offers dental implants, root canal treatment, braces, smile designing, teeth whitening, kids dentistry, tooth extraction, wisdom tooth removal, dentures, crowns and bridges, veneers, gum treatment, cosmetic dentistry, dental filling, scaling and polishing, and emergency dentistry."
+          "text": "Trisha Dental Care in Chhajarsi, Noida offers dental implants, root canal treatment, braces, smile designing, teeth whitening, kids dentistry, tooth extraction, wisdom tooth removal, dentures, crowns and bridges, veneers, gum treatment, cosmetic dentistry, dental filling, scaling and polishing, and 24x7 emergency dentistry."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Trisha Dental Care near Sector 62 Noida?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Trisha Dental Care is located in Chhajarsi, Sector 63, Noida — easily accessible from Sector 62, Sector 61, Sector 64 and other nearby areas of Noida."
         }
       }
     ]
   }
   </script>
 
-  <!-- Breadcrumb Schema -->
+  <!-- 5. BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://trishadentalcare.com/"
-      }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trishadentalcare.com/" }
     ]
   }
   </script>
@@ -726,7 +819,7 @@
       <div class="cta-band" data-aos="zoom-in">
         <span class="eyebrow"><i class="fas fa-calendar-check"></i> Book Your Visit</span>
         <h2>Looking for a Dentist in Chhajarsi or Sector 63, Noida?</h2>
-        <p>Book an appointment at Trisha Dental Care — open every day, 9 AM to 7 PM. Emergency dental care available 24×7. We will call you back to confirm.</p>
+        <p>Trisha Dental Care is open every day, 9 AM to 7 PM, in Chhajarsi, Sector 63, Noida. 24×7 emergency dental helpline. No referral needed. We will confirm your slot within hours.</p>
         <div class="hero-cta">
           <a href="contact.html#book" class="btn btn-white btn-lg"><i class="fas fa-calendar-check"></i> Book Appointment</a>
           <a href="tel:+91XXXXXXXXXX" class="btn btn-light-ghost btn-lg"><i class="fas fa-phone-volume"></i> Call Now</a>
@@ -776,6 +869,10 @@
           <div class="ci-item">
             <span class="ci-ico"><i class="fas fa-truck-medical"></i></span>
             <div><div class="ci-label">Emergency</div><div class="ci-value">24×7 Emergency Dental Helpline</div></div>
+          </div>
+          <div class="ci-item">
+            <span class="ci-ico"><i class="fas fa-map-location-dot"></i></span>
+            <div><div class="ci-label">Areas We Serve</div><div class="ci-value">Chhajarsi · Sector 61 · Sector 62 · Sector 63 · Sector 64 · Noida · Greater Noida</div></div>
           </div>
 
           <div class="ci-socials">
