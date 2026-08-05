@@ -404,6 +404,17 @@ li { list-style: none; }
   letter-spacing: -0.02em;
 }
 .nav-brand:hover { color: var(--c-text); }
+.nav-brand img.logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 210px;
+  object-fit: contain;
+  transition: transform 0.4s var(--ease);
+}
+.site-footer .nav-brand img.logo-img {
+  height: 52px;
+}
+.nav-brand:hover img.logo-img { transform: scale(1.04); }
 .nav-brand .brand-mark {
   width: 44px; height: 44px;
   border-radius: 14px;
@@ -1346,6 +1357,24 @@ li { list-style: none; }
 .app-toast.show { transform: translate(-50%, 0); }
 .app-toast .fa { color: var(--c-accent-400); font-size: 1.1rem; }
 
+/* Clinic Gallery Grid */
+.clinic-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+}
+.clinic-gallery-grid .masonry-item {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4/3;
+}
+.clinic-gallery-grid .masonry-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* =========================================================
    25. RESPONSIVE BREAKPOINTS
    ========================================================= */
@@ -1358,12 +1387,22 @@ li { list-style: none; }
   :root { --header-h: 70px; }
   .nav-links, .header-call, .nav-actions .btn-brand { display: none; }
   .nav-toggle { display: flex; }
-  .hero-grid { grid-template-columns: 1fr; gap: var(--sp-6); }
-  .hero-visual { max-width: 480px; margin: 0 auto; }
-  .float-card.fc-top { left: -10px; }
+  .hero { text-align: center; padding: calc(var(--header-h) + 24px) 0 var(--sp-6); }
+  .hero-grid { grid-template-columns: 1fr; gap: var(--sp-5); }
+  .hero-copy .sub { margin-inline: auto; }
+  .hero-cta { justify-content: center; }
+  .hero-trust { justify-content: center; }
+  .hero-visual { max-width: 480px; margin: 0 auto; width: 100%; }
+  .hero-photo { aspect-ratio: 16/10; }
+  .float-card { padding: 10px 14px; }
+  .float-card .fc-ico { width: 34px; height: 34px; font-size: 0.95rem; }
+  .float-card .fc-title { font-size: 0.85rem; }
+  .float-card .fc-sub { font-size: 0.68rem; }
+  .float-card.fc-top { left: -10px; top: 16px; }
   .float-card.fc-mid { right: -10px; }
-  .float-card.fc-bot { left: 10px; }
+  .float-card.fc-bot { left: -10px; bottom: 16px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .clinic-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .contact-grid { grid-template-columns: 1fr; }
   .story-grid { grid-template-columns: 1fr; }
   .story-imgs { max-width: 460px; margin: 0 auto; }
@@ -1386,12 +1425,18 @@ li { list-style: none; }
 @media (max-width: 560px) {
   .why-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
+  .clinic-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .doctors-grid { grid-template-columns: 1fr; }
+  .hero-copy h1 { font-size: 2.2rem; line-height: 1.16; margin-bottom: 12px; }
+  .hero-copy .sub { font-size: 0.96rem; line-height: 1.5; margin-bottom: 18px; }
   .hero-cta .btn, .cta-band .btn { width: 100%; justify-content: center; }
-  .hero-cta, .cta-band .hero-cta { flex-direction: column; }
+  .hero-cta, .cta-band .hero-cta { flex-direction: column; gap: 10px; }
+  .hero-trust { gap: 8px; justify-content: center; }
+  .trust-chip { font-size: 0.78rem; padding: 7px 12px; gap: 6px; }
   .timeline { grid-template-columns: 1fr; }
   .masonry { columns: 1; }
-  .hero-photo-wrap { padding: 8px; }
+  .hero-photo-wrap { padding: 6px; }
+  .hero-photo { aspect-ratio: 4/3; }
   .float-card { display: none; }
   .nav-brand .brand-sub { display: none; }
   .section { padding: var(--sp-6) 0; }
@@ -1401,7 +1446,8 @@ li { list-style: none; }
 }
 
 @media (max-width: 360px) {
-  .hero-copy h1 { font-size: 2.1rem; }
-  .btn { padding: 12px 20px; font-size: 0.88rem; }
-  .trust-chip { font-size: 0.8rem; padding: 8px 12px; }
+  .hero-copy h1 { font-size: 1.95rem; }
+  .btn { padding: 12px 18px; font-size: 0.86rem; }
+  .trust-chip { font-size: 0.74rem; padding: 6px 10px; }
+  .clinic-gallery-grid { grid-template-columns: 1fr; }
 }
