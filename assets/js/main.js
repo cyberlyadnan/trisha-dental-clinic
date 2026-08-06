@@ -85,13 +85,30 @@
       backdrop?.classList.remove("open");
       document.body.style.overflow = "";
     }
-    toggle?.addEventListener("click", function () {
+
+    toggle?.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
       mobileNav?.classList.contains("open") ? closeNav() : openNav();
     });
-    backdrop?.addEventListener("click", closeNav);
-    mobileNav?.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", closeNav)
-    );
+
+    backdrop?.addEventListener("click", function (e) {
+      e.preventDefault();
+      closeNav();
+    });
+
+    mobileNav?.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", function () {
+        closeNav();
+      });
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 992 && mobileNav?.classList.contains("open")) {
+        closeNav();
+      }
+    });
+
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") closeNav();
     });
