@@ -896,6 +896,8 @@ li { list-style: none; }
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+  display: flex;
+  flex-direction: column;
 }
 .doctor-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
 .doctor-photo { aspect-ratio: 1/1.05; overflow: hidden; position: relative; }
@@ -929,6 +931,27 @@ li { list-style: none; }
 .doctor-body .dr-spec { font-size: 0.9rem; color: var(--c-muted); margin-bottom: 14px; }
 .doctor-body .dr-exp { font-size: 0.78rem; color: var(--c-slate-500); border-top: 1px dashed var(--c-slate-200); padding-top: 12px; margin-bottom: 14px; }
 .doctor-body .dr-exp b { color: var(--c-text); }
+
+@media (min-width: 768px) {
+  .doctor-card {
+    flex-direction: row;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .doctor-card .doctor-photo {
+    width: 45%;
+    flex-shrink: 0;
+  }
+  .doctor-card .doctor-body {
+    width: 55%;
+    text-align: left;
+    padding: var(--sp-4) var(--sp-5);
+  }
+  .doctor-card .doctor-body .dr-badge {
+    margin-bottom: 15px;
+  }
+}
 
 /* =========================================================
    16. TREATMENT TIMELINE
@@ -1183,7 +1206,7 @@ li { list-style: none; }
 .ci-socials a {
   width: 42px; height: 42px; border-radius: 12px;
   background: rgba(255,255,255,0.15); color: #fff;
-  display: grid; place-items: center;
+  display: flex; align-items: center; justify-content: center;
   transition: 0.35s var(--ease);
 }
 .ci-socials a:hover { background: #fff; color: var(--c-primary-700); transform: translateY(-3px); }
@@ -1257,7 +1280,7 @@ li { list-style: none; }
 .footer-social a {
   width: 40px; height: 40px; border-radius: 12px;
   background: rgba(255,255,255,0.06); color: #fff;
-  display: grid; place-items: center; transition: 0.35s var(--ease);
+  display: flex; align-items: center; justify-content: center; transition: 0.35s var(--ease);
 }
 .footer-social a:hover { background: var(--grad-brand); transform: translateY(-3px); }
 
